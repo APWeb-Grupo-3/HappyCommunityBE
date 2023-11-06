@@ -32,7 +32,7 @@ public class TipoServicioServiceImplement implements ITipoServicioService {
 
     @Override
     public TipoServicio listarId(int idTipoServicio) {
-        return tsR.findById(idTipoServicio).orElse(new TipoServicio());
+        return tsR.findById(idTipoServicio).orElse(null);
     }
 
 

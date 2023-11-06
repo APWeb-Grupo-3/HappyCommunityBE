@@ -30,7 +30,7 @@ public class UsuarioServiceImplement implements IUsuarioService {
     }
 
     public Usuario listarId(int idUsuario) {
-        return uR.findById(idUsuario).orElse(new Usuario());
+        return uR.findById(idUsuario).orElse(null);
     }
 
 }

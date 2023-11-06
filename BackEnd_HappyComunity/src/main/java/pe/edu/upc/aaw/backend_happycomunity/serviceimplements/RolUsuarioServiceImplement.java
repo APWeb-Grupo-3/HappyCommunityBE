@@ -29,6 +29,6 @@ public class RolUsuarioServiceImplement implements IRolUsuarioService {
 
     @Override
     public RolUsuario listarId(int idRolUsuario) {
-        return ruR.findById(idRolUsuario).orElse(new RolUsuario());
+        return ruR.findById(idRolUsuario).orElse(null);
     }
 }

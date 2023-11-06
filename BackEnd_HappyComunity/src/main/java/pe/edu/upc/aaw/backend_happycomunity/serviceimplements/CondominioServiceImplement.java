@@ -31,6 +31,6 @@ public class CondominioServiceImplement implements ICondominioService {
 
     @Override
     public Condominio listarId(int idCondominio) {
-        return dR.findById(idCondominio).orElse(new Condominio());
+        return dR.findById(idCondominio).orElse( null);
     }
 }

@@ -3,6 +3,7 @@ package pe.edu.upc.aaw.backend_happycomunity.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.backend_happycomunity.dtos.CondominioDTO;
 import pe.edu.upc.aaw.backend_happycomunity.dtos.PlanConvivenciaDTO;
 import pe.edu.upc.aaw.backend_happycomunity.entities.PlanConvivencia;
 import pe.edu.upc.aaw.backend_happycomunity.serviceinterfaces.IPlanConvivenciaService;
@@ -34,5 +35,16 @@ public class PlanConvivenciaController {
         ModelMapper m=new ModelMapper();
         PlanConvivencia u=m.map(dto,PlanConvivencia.class);
         pS.insert(u);
+    }
+
+    @GetMapping("/{id}")
+    public PlanConvivenciaDTO listarId(@PathVariable("id") Integer id) {
+        ModelMapper m=new ModelMapper();
+        PlanConvivenciaDTO dto=m.map(pS.listarId(id),PlanConvivenciaDTO.class);
+        return dto;
+    }
+    @DeleteMapping("/{id}")
+    public  void  eliminar(@PathVariable("id")Integer id){
+        pS.delete(id);
     }
 }

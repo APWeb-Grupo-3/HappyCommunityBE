@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.backend_happycomunity.dtos.CondominioDTO;
+import pe.edu.upc.aaw.backend_happycomunity.dtos.PlanConvivenciaDTO;
 import pe.edu.upc.aaw.backend_happycomunity.dtos.SolicitudAccesoDTO;
 import pe.edu.upc.aaw.backend_happycomunity.entities.Condominio;
 import pe.edu.upc.aaw.backend_happycomunity.entities.SolicitudAcceso;
@@ -39,6 +40,12 @@ public class SolicitudAccesoController {
         ModelMapper m = new ModelMapper();
         SolicitudAcceso s = m.map(dto, SolicitudAcceso.class);
         sS.insert(s);
+    }
+    @GetMapping("/{id}")
+    public SolicitudAccesoDTO listarId(@PathVariable("id") Integer id) {
+        ModelMapper m=new ModelMapper();
+        SolicitudAccesoDTO dto=m.map(sS.listarId(id),SolicitudAccesoDTO.class);
+        return dto;
     }
 
 }
